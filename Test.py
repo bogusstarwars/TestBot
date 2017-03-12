@@ -11,6 +11,7 @@ logging.basicConfig()
 
 bot = commands.Bot(command_prefix='?', description=description)
 games= ('Destiny','Rainbow 6 Siege','OverWatch','PoE','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
+game = ('with your mind') 
 
 @bot.event
 async def on_ready():
@@ -21,7 +22,7 @@ async def on_ready():
 
 @bot.event
 async def changeGame():
-change_status(game='With your mind', idle=False)
+client.change_status(discord.Game(name=game))
 
 @bot.command()
 async def add(left : int, right : int):
