@@ -10,6 +10,7 @@ There are a number of utility commands being showcased here.'''
 logging.basicConfig()
 
 bot = commands.Bot(command_prefix='?', description=description)
+client = discord.Client()
 games= ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
 
 @bot.event
@@ -22,6 +23,7 @@ async def on_ready():
 @bot.command()
 async def changeGame(game : str):
 	await client.change_status(discord.Game(name=game))
+	await bot.say ('Game Changed')
 
 @bot.command()
 async def add(left : int, right : int):
