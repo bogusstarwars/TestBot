@@ -87,8 +87,8 @@ async def ship(name1 : str, name2 : str):
 	shipname = newname1 + newname2
 	await bot.say('Your shipped name is {}.'.format(shipname))
 
-@bot.command()
+'''@bot.command()
 async def help():
 	await bot.say('?add ,requires two numbers,?choose, requires multiple words to choose between,?cool, requires name,?rgame,will output a random game,?ship,requires two names to ship ')
-
+'''
 bot.run('MjgyOTk3MzAxMDQyMDg1ODg5.C6KbeQ.QMzhuYjGQy2BGcrXMz248qajUQ4')
