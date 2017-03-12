@@ -10,7 +10,7 @@ There are a number of utility commands being showcased here.'''
 logging.basicConfig()
 
 bot = commands.Bot(command_prefix='?', description=description)
-games= ('Destiny','Rainbow 6 Siege','OverWatch','PoE','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
+games= ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
 game = ('with your mind') 
 
 @bot.event
@@ -22,7 +22,7 @@ async def on_ready():
 
 @bot.event
 async def changeGame():
-client.change_status(discord.Game(name=game))
+	client.change_status(discord.Game(name=game))
 
 @bot.command()
 async def add(left : int, right : int):
