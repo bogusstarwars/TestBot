@@ -81,4 +81,5 @@ async def ship(name1 : str, name2 : str):
 	shipname = newname1 + newname2
 	await bot.say('Your shipped name is {}.'.format(shipname))
 
+async change_status(game='with your mind',idle=False)
 bot.run('MjgyOTk3MzAxMDQyMDg1ODg5.C6KbeQ.QMzhuYjGQy2BGcrXMz248qajUQ4')
