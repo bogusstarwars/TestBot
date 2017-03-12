@@ -22,7 +22,7 @@ async def on_ready():
 
 @bot.event
 async def changeGame():
-	client.change_status(discord.Game(name=game))
+	await client.change_status(discord.Game(name=game))
 
 @bot.command()
 async def add(left : int, right : int):
