@@ -22,7 +22,7 @@ async def on_ready():
 
 @bot.command()
 async def changeGame(game : str):
-	await client.change_status(discord.Game(name=game))
+	await client.change_presence(discord.Game(name=game))
 	await bot.say ('Game Changed')
 
 @bot.command()
