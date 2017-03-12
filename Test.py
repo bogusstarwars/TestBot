@@ -68,7 +68,7 @@ async def cool(ctx):
     if ctx.invoked_subcommand is None:
         await bot.say('No, {0.subcommand_passed} is not cool'.format(ctx))
 
-@cool.command(name='bot')
+@cool.command(name='TesBot')
 async def _bot():
     """Is the bot cool?"""
     await bot.say('Yes, the bot is cool.')
@@ -89,6 +89,6 @@ async def ship(name1 : str, name2 : str):
 
 @bot.command()
 async def help():
-	await bot.say('?add (requires two numbers),?choose (requires multiple words to choose between),?cool (requires name),?rgame(will output a random game),?ship(requires two names to ship) ')
+	await bot.say('?add ,requires two numbers,?choose, requires multiple words to choose between,?cool, requires name,?rgame,will output a random game,?ship,requires two names to ship ')
 
 bot.run('MjgyOTk3MzAxMDQyMDg1ODg5.C6KbeQ.QMzhuYjGQy2BGcrXMz248qajUQ4')
