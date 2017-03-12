@@ -19,7 +19,7 @@ async def on_ready():
     print(282997301042085889)
     print('------')
 
-@bot.command
+@bot.command()
 async def changeGame(game : str):
 	await client.change_status(discord.Game(name=game))
 
