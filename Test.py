@@ -23,7 +23,7 @@ async def on_ready():
 @bot.command()
 async def changeGame(game : str):
 	await client.change_presence(discord.Game(name=game))
-	await bot.say ('Game Changed')
+	await bot.say ('Game Changed.')
 
 @bot.command()
 async def add(left : int, right : int):
@@ -86,5 +86,9 @@ async def ship(name1 : str, name2 : str):
 	newname2 = name2[len(name2)//2:]
 	shipname = newname1 + newname2
 	await bot.say('Your shipped name is {}.'.format(shipname))
+
+@bot.command()
+async def help():
+	await bot.say('?add (requires two numbers),?choose (requires multiple words to choose between),?cool (requires name),?rgame(will output a random game),?ship(requires two names to ship) ')
 
 bot.run('MjgyOTk3MzAxMDQyMDg1ODg5.C6KbeQ.QMzhuYjGQy2BGcrXMz248qajUQ4')
