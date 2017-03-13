@@ -22,8 +22,8 @@ async def on_ready():
     print('------')
 
 @bot.command()
-async def changeGame(game : str):
-	await bot.change_presence(discord.Game(name='{}'.format(game)))
+async def changeGame(playing : str):
+	await bot.change_presence(game=discord.Game(name='{}'.format(playing)))
 	await bot.say ('Game Changed.')
 
 @bot.command()
