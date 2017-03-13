@@ -88,7 +88,7 @@ async def ship(name1 : str, name2 : str):
 	shipname = newname1 + newname2
 	await bot.say('Your shipped name is {}.'.format(shipname))
 	
-@bot.command('Answers any yes/no question. Use quotes around the question.')
+@bot.command(description='Answers any yes/no question. Use quotes around the question.')
 async def eightball(question : str):
 	await bot.say('**Your question is:** {}'.format(question))
 	await bot.say('**The answer is:** {}'.format(random.choice(answer)))
