@@ -22,11 +22,11 @@ async def on_ready():
     print('------')
 
 @bot.event()
-async def on_message(self, message):
-	playin = ' '
-	if message.content  == ('?setGame {}'.format(playin))
+async def on_message(self, message,):
+	if message.content.startswith ('?setGame')
 		if message.author.user.id == AppInfo.owner.id
-			await bot.change_presence(game=discord.Game(name='{}'.format(playin))
+			playin = message.content.split('?setgame ')
+			await bot.change_presence(game=discord.Game(name='{}'.format(playin[1]))
 			await bot.say ('Game Changed.')
 		else await bot.say('Get the owner to change it.')
 
