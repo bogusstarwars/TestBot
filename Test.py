@@ -102,6 +102,6 @@ async def ship(name1 : str, name2 : str):
 async def eightball(*question : str):
 	"""Answers any yes/no question. Use quotes around the question."""
 	await bot.say('**Your question is:** {}'.format(question))
-	await bot.say('**The answer is:** {}'.format(random.choice(answer))
+	await bot.say('**The answer is:** {}'.format(random.choice(answer)))
 
 bot.run('MjgyOTk3MzAxMDQyMDg1ODg5.C6KbeQ.QMzhuYjGQy2BGcrXMz248qajUQ4')
