@@ -23,6 +23,7 @@ async def on_ready():
 
 @bot.event()
 async def on_message(self, message):
+	playin = ' '
 	if message.content  == ('?setGame {}'.format(playin))
 		if message.author.user.id == AppInfo.owner.id
 			await bot.change_presence(game=discord.Game(name='{}'.format(playin))
