@@ -11,7 +11,8 @@ logging.basicConfig()
 
 bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
-games= ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
+games = ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
+answer = ('Most definitely','Definetely No','My sources say yes','My sources say no','NO - It may cause disease contraction',"Don't count on it",'Maybe','For sure','Totally','Nope','Ask me again later','Go search it up on Google' )
 
 @bot.event
 async def on_ready():
@@ -78,7 +79,7 @@ async def rgame():
     """Chooses random game."""
     await bot.say(random.choice(games))
 
-@bot.command()
+@bot.command(description='combine two names to make a cute nickname for a couple.')
 async def ship(name1 : str, name2 : str):
 	nname1 = (len(name1) / 2)
 	nname2 = (len(name2) / 2)
@@ -86,9 +87,10 @@ async def ship(name1 : str, name2 : str):
 	newname2 = name2[len(name2)//2:]
 	shipname = newname1 + newname2
 	await bot.say('Your shipped name is {}.'.format(shipname))
+	
+@bot.command('Answers any yes/no question. Use quotes around the question.')
+async def eightball(question : str):
+	await bot.say('**Your question is:** {}'.format(question))
+	await bot.say('**The answer is:** {}'.format(random.choice(answer)))
 
-'''@bot.command()
-async def help():
-	await bot.say('?add ,requires two numbers,?choose, requires multiple words to choose between,?cool, requires name,?rgame,will output a random game,?ship,requires two names to ship ')
-'''
 bot.run('MjgyOTk3MzAxMDQyMDg1ODg5.C6KbeQ.QMzhuYjGQy2BGcrXMz248qajUQ4')
