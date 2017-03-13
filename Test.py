@@ -3,7 +3,7 @@ from discord.ext import commands
 import random
 import logging
 
-description = '''An example bot to showcase the discord.ext.commands extension
+description = '''A test bot to showcase the discord.ext.commands extension
 module.
 
 There are a number of utility commands being showcased here.'''
@@ -74,6 +74,16 @@ async def _bot():
     """Is the bot cool?"""
     await bot.say('Yes, the bot is cool.')
 	
+@cool.command(name='Neville')
+async def neville():
+    """Is the bot cool?"""
+    await bot.say('Yes, Neville is cool.')
+
+@cool.command(name='Bogusstarwarsguy')
+async def bogus():
+    """Is the bot cool?"""
+    await bot.say('Yes, Bogusstarwarsguy is cool.')	
+	
 @bot.command(description='For when you wanna know what game to play')
 async def rgame():
     """Chooses random game."""
@@ -89,7 +99,7 @@ async def ship(name1 : str, name2 : str):
 	await bot.say('Your shipped name is {}.'.format(shipname))
 	
 @bot.command(description='Answers any yes/no question. Use quotes around the question.')
-async def eightball(question : str):
+async def eightball(*question : str):
 	"""Answers any yes/no question. Use quotes around the question."""
 	await bot.say('**Your question is:** {}'.format(question))
 	await bot.say('**The answer is:** {}'.format(random.choice(answer)))
