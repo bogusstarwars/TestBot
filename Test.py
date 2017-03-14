@@ -8,7 +8,7 @@ module.
 
 There are a number of utility commands being showcased here.'''
 logging.basicConfig()
-AppInfo.owner.id = 199972785714364421
+owner.id = 199972785714364421
 bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
 games = ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
@@ -24,7 +24,7 @@ async def on_ready():
 @bot.event()
 async def on_message(self, message,):
 	if message.content.startswith ('?setGame'):
-		if message.author.user.id == AppInfo.owner.id:
+		if message.author.user.id == owner.id:
 			playin = message.content.split('?setGame ')
 			await bot.change_presence(game=discord.Game(name='{}'.format(playin[1])))
 			await bot.say ('Game Changed.')
