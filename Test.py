@@ -8,6 +8,8 @@ module.
 
 There are a number of utility commands being showcased here.'''
 logging.basicConfig()
+
+owner = discord.AppInfo(owner)
 owner.id = 199972785714364421
 bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
