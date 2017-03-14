@@ -9,8 +9,7 @@ module.
 There are a number of utility commands being showcased here.'''
 logging.basicConfig()
 
-owner = discord.AppInfo(owner)
-owner.id = 199972785714364421
+discord.AppInfo(owner(id=199972785714364421))
 bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
 games = ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
