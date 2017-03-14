@@ -29,7 +29,8 @@ async def on_message(self, message,):
 			await bot.change_presence(game=discord.Game(name='{}'.format(playin[1])))
 			await bot.say ('Game Changed.')
 			
-		else await bot.say('Get the owner to change it.')
+		else:
+			await bot.say('Get the owner to change it.')
 
 @bot.command()
 async def changeGame(playing : str):
