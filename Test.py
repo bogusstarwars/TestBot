@@ -9,7 +9,7 @@ module.
 There are a number of utility commands being showcased here.'''
 logging.basicConfig()
 
-discord.AppInfo(owner(id=199972785714364421))
+"""discord.AppInfo(owner(id=199972785714364421))"""
 bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
 games = ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
@@ -22,7 +22,7 @@ async def on_ready():
     print(282997301042085889)
     print('------')
 
-'''@bot.event()
+"""@bot.event()
 async def on_message(self, message,):
 	if message.content.startswith ('?setGame'):
 		if message.author.user.id == owner.id:
@@ -32,7 +32,7 @@ async def on_message(self, message,):
 			
 		else:
 			await bot.say('Get the owner to change it.')
-'''
+"""
 @bot.command()
 async def changeGame(playing : str):
 	await bot.change_presence(game=discord.Game(name='{}'.format(playing)))
