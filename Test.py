@@ -18,7 +18,7 @@ answer = ('Most definitely','Definetely No','My sources say yes','My sources say
 @bot.event
 async def on_ready():
     print('Logged in as')
-    print('TesBot')
+    print('BogusBot')
     print(282997301042085889)
     print('------')
 
