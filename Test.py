@@ -22,7 +22,7 @@ async def on_ready():
     print(282997301042085889)
     print('------')
 
-@bot.event()
+'''@bot.event()
 async def on_message(self, message,):
 	if message.content.startswith ('?setGame'):
 		if message.author.user.id == owner.id:
@@ -32,7 +32,7 @@ async def on_message(self, message,):
 			
 		else:
 			await bot.say('Get the owner to change it.')
-
+'''
 @bot.command()
 async def changeGame(playing : str):
 	await bot.change_presence(game=discord.Game(name='{}'.format(playing)))
