@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import random
 import logging
-import youtube-dl
+import youtube_dl
 
 description = '''A test bot to showcase the discord.ext.commands extension
 module.
