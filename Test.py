@@ -57,12 +57,12 @@ async def choose(*choices : str):
     await bot.say(random.choice(choices))
 
 	
-@bot.command()
+'''@bot.command()
 async def repeat(times : int, content='repeating...'):
-   ''' Repeats a message multiple times.'''
+    Repeats a message multiple times.
     for i in range(times):
         await bot.say(content)
-
+'''
 @bot.command()
 async def joined(member : discord.Member):
     """Says when a member joined."""
