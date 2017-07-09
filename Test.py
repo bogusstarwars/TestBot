@@ -14,29 +14,25 @@ bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
 games = ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
 answer = ('Most definitely','Definetely No','My sources say yes','My sources say no','NO - It may cause disease contraction',"Don't count on it",'Maybe','For sure','Totally','Nope','Ask me again later','Go search it up on Google' )
+ownerid=('199972785714364421')
 
 @bot.event
 async def on_ready():
     print('Logged in as')
-    print('BogusBot')
-    print(282997301042085889)
+    print(bot.user.name)
+    print(bot.user.id)
     print('------')
 
-"""@bot.event()
-async def on_message(self, message,):
+@bot.event
+async def on_message(message):
 	if message.content.startswith ('?setGame'):
-		if message.author.user.id == owner.id:
+		print (message.author.id)
+		if ownerid == message.author.id:
 			playin = message.content.split('?setGame ')
 			await bot.change_presence(game=discord.Game(name='{}'.format(playin[1])))
-			await bot.say ('Game Changed.')
-			
+			await bot.send_message (message.channel, 'Game Changed.')	
 		else:
-			await bot.say('Get the owner to change it.')
-"""
-@bot.command()
-async def changeGame(playing : str):
-	await bot.change_presence(game=discord.Game(name='{}'.format(playing)))
-	await bot.say ('Game Changed.')
+			await bot.send_message(message.channel, 'Get the owner to change it.')
 
 @bot.command()
 async def add(left : int, right : int):
@@ -60,13 +56,13 @@ async def choose(*choices : str):
     """Chooses between multiple choices."""
     await bot.say(random.choice(choices))
 
-"""	
+	
 @bot.command()
 async def repeat(times : int, content='repeating...'):
-    """ """Repeats a message multiple times.""" """
+   ''' Repeats a message multiple times.'''
     for i in range(times):
         await bot.say(content)
-"""
+
 @bot.command()
 async def joined(member : discord.Member):
     """Says when a member joined."""
