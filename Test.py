@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import random
 import logging
+import youtube-dl
 
 description = '''A test bot to showcase the discord.ext.commands extension
 module.
@@ -33,7 +34,7 @@ async def on_message(message):
 			await bot.send_message (message.channel, 'Game Changed.')	
 		else:
 			await bot.send_message(message.channel, 'Get the owner to change it.')
-
+	await bot.process_commands(message)
 @bot.command()
 async def add(left : int, right : int):
     """Adds two numbers together."""
