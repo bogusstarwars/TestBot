@@ -30,7 +30,7 @@ async def on_message(message):
 		print (message.author.id)
 		if ownerid == message.author.id:
 			playin = message.content.split('?setGame ')
-			await bot.change_presence(game=discord.Game(name='{}'.format(playin[0])))
+			await bot.change_presence(game=discord.Game(name='{}'.format(playin[1])))
 			await bot.send_message (message.channel, 'Game Changed.')	
 		else:
 			await bot.send_message(message.channel, 'Get the owner to change it.')
