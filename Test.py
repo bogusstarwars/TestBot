@@ -29,7 +29,7 @@ async def on_message(message):
 	if message.content.startswith ('?setGame'):
 		print (message.author.id)
 		if ownerid == message.author.id:
-			playin = message.content.split('?setGame ')
+			playin = message.content.split('?setGame ', 1)[1]
 			await bot.change_presence(game=discord.Game(name='{}'.format(playin[1])))
 			await bot.send_message (message.channel, 'Game Changed.')	
 		else:
