@@ -20,7 +20,7 @@ answer = ('Most definitely','Definetely No','My sources say yes','My sources say
 ownerid=('199972785714364421')
 
 if not discord.opus.is_loaded():
-	discord.opus.load_opus(opus)
+	discord.opus.load_opus()
 	
 @bot.event
 async def on_ready():
