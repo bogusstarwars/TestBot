@@ -19,6 +19,9 @@ games = ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','C
 answer = ('Most definitely','Definetely No','My sources say yes','My sources say no','NO - It may cause disease contraction',"Don't count on it",'Maybe','For sure','Totally','Nope','Ask me again later','Go search it up on Google' )
 ownerid=('199972785714364421')
 
+if not discord.opus.is_loaded():
+	discord.opus.load_opus()
+	
 @bot.event
 async def on_ready():
     print('Logged in as')
