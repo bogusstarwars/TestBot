@@ -3,6 +3,8 @@ from discord.ext import commands
 import random
 import logging
 import youtube_dl
+import aiohttp
+import websockets
 
 description = '''A test bot to showcase the discord.ext.commands extension
 module.
@@ -112,5 +114,22 @@ async def eightball(*, question : str):
 	"""Answers any yes/no question. Use quotes around the question."""
 	await bot.say('**Your question is:** {}'.format(question))
 	await bot.say('**The answer is:** {}'.format(random.choice(answer)))
+	
+	
+@bot.command(pass_context = True)
+async def disconnect(ctx):
+    for x in bot.voice_clients:
+        if(x.server == ctx.message.server):
+            return await x.disconnect()
+
+@bot.command(pass_context = True)
+async def wow(ctx, *, song : str ):
+	voice = await bot.join_voice_channel(ctx.message.author.voice_channel)
+	if song.startswith('d'):
+		player = voice.create_ffmpeg_player('Darude-Dankstorm.mp3')
+	else:
+		player = voice.create_ffmpeg_player('SHOTS FIRED.mp3')
+	player.start()
+	
 
 bot.run('MjgyOTk3MzAxMDQyMDg1ODg5.C6KbeQ.QMzhuYjGQy2BGcrXMz248qajUQ4')
