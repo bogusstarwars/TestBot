@@ -130,9 +130,8 @@ async def purge(ctx):
 @bot.command(pass_context = True)
 async def timepurge(ctx,*, time : int):
     if ownerid == ctx.message.author.id:
-		await bot.wait_until_ready()
-		counter = 0
-		while not bot.is_closed:
+        counter = 0
+        while not bot.is_closed:
             counter += 1
             await bot.say(counter)
             deleted = await bot.purge_from(ctx.message.channel)
