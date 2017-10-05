@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+import asyncio
 import logging
 import youtube_dl
 import aiohttp
@@ -117,8 +118,29 @@ async def eightball(*, question : str):
 	"""Answers any yes/no question. Use quotes around the question."""
 	await bot.say('**Your question is:** {}'.format(question))
 	await bot.say('**The answer is:** {}'.format(random.choice(answer)))
-	
-	
+
+@bot.command(pass_context = True)
+async def purge(ctx):
+    if ownerid == ctx.message.author.id:
+        deleted = await bot.purge_from(ctx.message.channel)
+        await bot.say('Deleted {} message(s)'.format(len(deleted)))
+    else:
+        await bot.say('Get the owner to Commence the purge.')
+
+@bot.command(pass_context = True)
+async def timepurge(ctx,*, time : int):
+    if ownerid == ctx.message.author.id:
+		await bot.wait_until_ready()
+		counter = 0
+		while not bot.is_closed:
+            counter += 1
+            await bot.say(counter)
+            deleted = await bot.purge_from(ctx.message.channel)
+            await bot.say( 'Deleted {} message(s)'.format(len(deleted)))
+            await asyncio.sleep(time) # task runs every 60 seconds
+	else:
+        await bot.say('Get the owner to Commence the purge.')
+
 @bot.command(pass_context = True)
 async def disconnect(ctx):
     for x in bot.voice_clients:
