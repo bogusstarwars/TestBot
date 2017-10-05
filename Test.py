@@ -138,7 +138,7 @@ async def timepurge(ctx,*, time : int):
             deleted = await bot.purge_from(ctx.message.channel)
             await bot.say( 'Deleted {} message(s)'.format(len(deleted)))
             await asyncio.sleep(time) # task runs every 60 seconds
-            if stoppurge == 1:
+            if sp == 1:
                 break
                 sp = 0
     else:
