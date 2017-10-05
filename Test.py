@@ -144,8 +144,8 @@ async def timepurge(ctx,*, time : int):
     else:
         await bot.say('Get the owner to Commence the purge.')
 
-@bot.command()
-async def stoppurge():
+@bot.command(pass_context = True)
+async def stoppurge(ctx):
     if ownerid == ctx.message.author.id:
       sp = 1
     else:
