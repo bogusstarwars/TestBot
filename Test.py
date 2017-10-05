@@ -140,12 +140,16 @@ async def timepurge(ctx,*, time : int):
             await asyncio.sleep(time) # task runs every 60 seconds
             if (stoppurge):
                 break
+                stoppurge = None
     else:
         await bot.say('Get the owner to Commence the purge.')
 
 @bot.command()
 async def stoppurge():
-    stoppurge = True
+    if ownerid == ctx.message.author.id:
+      stoppurge = True
+    else:
+        await bot.say('Get the owner to Stop the purge.')
 
 @bot.command(pass_context = True)
 async def disconnect(ctx):
