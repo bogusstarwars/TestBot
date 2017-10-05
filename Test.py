@@ -14,6 +14,7 @@ There are a number of utility commands being showcased here.'''
 logging.basicConfig()
 
 """discord.AppInfo(owner(id=199972785714364421))"""
+stoppurge = None
 bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
 games = ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
@@ -137,8 +138,14 @@ async def timepurge(ctx,*, time : int):
             deleted = await bot.purge_from(ctx.message.channel)
             await bot.say( 'Deleted {} message(s)'.format(len(deleted)))
             await asyncio.sleep(time) # task runs every 60 seconds
+            if (stoppurge):
+                break
     else:
         await bot.say('Get the owner to Commence the purge.')
+
+@bot.command()
+async def stoppurge():
+    stoppurge = True
 
 @bot.command(pass_context = True)
 async def disconnect(ctx):
