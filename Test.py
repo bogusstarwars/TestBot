@@ -14,7 +14,6 @@ There are a number of utility commands being showcased here.'''
 logging.basicConfig()
 
 """discord.AppInfo(owner(id=199972785714364421))"""
-sp = 0
 bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
 games = ('Destiny','Rainbow 6 Siege','OverWatch','Path of Exile','TF2','GTA5','CS:GO','Metal Gear Solid V','Terraria','Minecraft','Rocket League')
@@ -23,7 +22,16 @@ ownerid=('199972785714364421')
 
 '''if not discord.opus.is_loaded():
 	discord.opus.load_opus()'''
-	
+
+async def timepurgey(time: int, channel: object):
+    await bot.wait_until_ready()
+    counter = 0
+    while not bot.is_closed:
+        counter += 1
+        await bot.send_message(channel,counter)
+        deleted = await bot.purge_from(channel)
+        await asyncio.sleep(time)  # task runs every "time" seconds
+
 @bot.event
 async def on_ready():
     print('Logged in as')
@@ -128,26 +136,19 @@ async def purge(ctx):
     else:
         await bot.say('Get the owner to Commence the purge.')
 
-@bot.command(pass_context = True)
-async def timepurge(ctx,*, time : int):
+@bot.command(pass_context=True)
+async def timepurge(ctx, *, time: int):
     if ownerid == ctx.message.author.id:
-        counter = 0
-        while not bot.is_closed:
-            counter += 1
-            await bot.say(counter)
-            deleted = await bot.purge_from(ctx.message.channel)
-            await bot.say( 'Deleted {} message(s)'.format(len(deleted)))
-            await asyncio.sleep(time) # task runs every 60 seconds
-            if sp == 1:
-                break
-                sp = 0
+        channel = ctx.message.channel
+        bot.task = bot.loop.create_task(timepurgey(time, channel))
     else:
         await bot.say('Get the owner to Commence the purge.')
 
-@bot.command(pass_context = True)
-async def stoppurge(ctx):
+@bot.command(pass_context=True)
+async def stoppurge (ctx):
     if ownerid == ctx.message.author.id:
-      sp = 1
+        bot.task.cancel()
+        await bot.say("Purge Stopped.")
     else:
         await bot.say('Get the owner to Stop the purge.')
 
